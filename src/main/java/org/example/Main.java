@@ -25,10 +25,16 @@ public class Main {
         printJaggedArray(jaggedArray);
 
 
-        int totalLength = Arrays.stream(jaggedArray).mapToInt(row -> row.length).sum();
+
+        int totalLength = 0;
+        for (int[] row : jaggedArray) {
+            totalLength += row.length;
+        }
         int[] flatArray = new int[totalLength];
         int index = 0;
 
+
+        
         for (int[] row : jaggedArray) {
             for (int num : row) {
                 flatArray[index++] = num;
